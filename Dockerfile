@@ -37,6 +37,9 @@ RUN ./container-stack
 ADD ./installer/toy .
 RUN ./toy
 
+ADD ./installer/vscode .
+RUN ./vscode
+
 ADD config/nvim /root/.config/nvim
 ADD zshrc /root/.zshrc
 ADD gitconfig /root/.gitconfig
