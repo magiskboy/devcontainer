@@ -1,0 +1,73 @@
+#!/bin/bash
+
+function start() {
+    docker_uri=$(docker context inspect $(docker context show) --format '{{ .Endpoints.docker.Host }}')
+    docker_socket="${docker_uri#unix://}"
+
+    docker run -dit \
+        --name devcontainer \
+        --hostname devcontainer \
+        --platform linux/amd64 \
+        -v "${HOME}/.kube:/root/.kube" \
+        -v "${HOME}/.ssh:/root/.ssh" \
+        -v "${HOME}/code:/root/code" \
+        -v "${HOME}/Downloads:/root/Downloads" \
+        -v "${docker_socket}:/var/run/docker.sock" \
+        nguyenkhacthanh/devcontainer:latest "bash"
+}
+
+
+function attach() {
+    docker exec -it devcontainer zsh -l -i
+}
+
+
+function stop() {
+    docker stop devcontainer
+}
+
+
+function remove() {
+    docker rm devcontainer
+}
+
+
+function build() {
+    docker buildx build . --platform linux/amd64 -t nguyenkhacthanh/devcontainer:latest
+}
+
+function clean() {
+    docker container ps -a --filter name=devcontainer --format "{{ .ID }}" | xargs docker rm
+}
+
+
+function usage() {
+    cat <<EOF
+Usage: devcontainer {start|attach|stop|remove|build|clean}
+
+Commands:
+  start     Start the devcontainer in detached mode with mounted volumes.
+  attach    Attach to the running devcontainer using bash.
+  stop      Stop the running devcontainer.
+  remove    Remove the devcontainer container.
+  build     Build the devcontainer image for linux/amd64.
+  clean     Clean the zombie devcontainer
+
+EOF
+}
+
+
+function main() {
+    case "$1" in
+        start) start ;;
+        attach) attach ;;
+        stop) stop ;;
+        remove) remove ;;
+        build) build ;;
+        clean) clean ;;
+        *) usage ;;
+    esac
+}
+
+
+main "$@"

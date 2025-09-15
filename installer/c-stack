@@ -1,0 +1,6 @@
+#!/bin/bash
+
+apt install -y \
+    clang \
+    llvm \
+    clangd

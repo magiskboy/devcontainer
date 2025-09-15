@@ -1,0 +1,10 @@
+#!/bin/bash
+
+apt install -y zsh
+
+sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions --depth=1 /root/.oh-my-zsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting --depth=1 /root/.oh-my-zsh/plugins/zsh-syntax-highlighting
+
+git clone https://github.com/romkatv/zsh-defer.git --depth=1 /root/.zsh-defer

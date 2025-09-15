@@ -1,0 +1,28 @@
+#!/bin/bash
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
+    chmod +x kubectl && \
+    mv kubectl /usr/bin
+
+mkdir ./helm && \
+    curl -L https://get.helm.sh/helm-v3.19.0-linux-amd64.tar.gz | tar -xz -C ./helm && \
+    mv ./helm/linux-amd64/helm /usr/bin  && \
+    rm -r helm && \
+    helm plugin install https://github.com/databus23/helm-diff && \
+    helm plugin install https://github.com/aslafy-z/helm-git && \
+    helm plugin install https://github.com/hypnoglow/helm-s3 && \
+    helm plugin install https://github.com/jkroepke/helm-secrets
+
+mkdir helmfile && \
+    curl -L https://github.com/helmfile/helmfile/releases/download/v1.1.7/helmfile_1.1.7_linux_amd64.tar.gz | tar -xz -C ./helmfile && \
+    mv helmfile/helmfile /usr/bin  && \
+    rm -r helmfile
+
+mkdir k9s && \
+    curl -L https://github.com/derailed/k9s/releases/download/v0.50.9/k9s_Linux_amd64.tar.gz | tar -xz -C ./k9s && \
+    mv k9s/k9s /usr/bin && \
+    rm -r k9s
+
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.30.0/kind-linux-amd64 && \
+    chmod +x ./kind && \
+    mv ./kind /usr/bin/kind

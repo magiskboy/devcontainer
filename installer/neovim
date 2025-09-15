@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl -L https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.tar.gz | tar -xz -C . && \
+    mv nvim-linux-x86_64 /opt/neovim
