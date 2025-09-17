@@ -6,12 +6,9 @@ return {
     },
     'ap/vim-css-color',
     'towolf/vim-helm',
-    'hashivim/vim-terraform',
 
     -- Theme
     'navarasu/onedark.nvim',
-
-    'luckasRanarison/tailwind-tools.nvim',
 
     -- LSP and signature
     'williamboman/mason.nvim',
@@ -38,7 +35,6 @@ return {
             vim.g.go_code_completed_enabled = 0
         end
     },
-    { 'https://codeberg.org/esensar/nvim-dev-container' },
     'alvan/vim-closetag',
     'tpope/vim-surround',
     'windwp/nvim-autopairs',
@@ -53,7 +49,6 @@ return {
         },
     },
     'sindrets/diffview.nvim',
-    'akinsho/toggleterm.nvim',
 
     -- UI enhancements
     'kyazdani42/nvim-web-devicons',

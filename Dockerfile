@@ -49,8 +49,12 @@ RUN ./vscode
 ADD config/nvim /root/.config/nvim
 ADD zshrc /root/.zshrc
 ADD gitconfig /root/.gitconfig
+ADD gitmessage.txt /root/.gitmessage
 
 ADD ./post-install .
+RUN ./post-install
+
+ADD ./installer/post-install .
 RUN ./post-install
 
 WORKDIR /root

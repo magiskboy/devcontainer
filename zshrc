@@ -52,6 +52,8 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(zoxide init zsh)"
 
 alias ls="lsd --icon always"
+alias cat="bat"
+alias find="fd"
 alias lt="lsd --icon always --tree"
 alias vim="nvim"
 alias cd="z"
