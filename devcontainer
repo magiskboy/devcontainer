@@ -13,7 +13,8 @@ function start() {
         -v "${HOME}/code:/root/code" \
         -v "${HOME}/Downloads:/root/Downloads" \
         -v "${docker_socket}:/var/run/docker.sock" \
-        -p "8080:1998" \
+        -v "${HOME}/.zsh_history:/root/.zsh_history" \
+        -p "1998:8080" \
         nguyenkhacthanh/devcontainer:latest "bash" && \
         docker exec -it devcontainer zsh -l -i
 }

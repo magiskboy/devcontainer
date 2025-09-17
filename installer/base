@@ -29,4 +29,5 @@ apt install -y \
 apt install -y \
     curl \
     git \
-    wget
+    wget \
+    unzip

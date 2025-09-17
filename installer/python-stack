@@ -6,3 +6,9 @@ mkdir -p uv && \
     curl -L https://github.com/astral-sh/uv/releases/download/0.8.17/uv-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C ./uv && \
     mv ./uv/uv-x86_64-unknown-linux-gnu/* /usr/bin && \
     rm -r ./uv
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="${PYENV_ROOT}/shims:$PATH"
+export PYTHONDONTWRITEBYTECODE=1
+
+pyenv install 3.12

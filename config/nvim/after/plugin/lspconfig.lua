@@ -36,8 +36,6 @@ lsp.html.setup{}
 
 lsp.clangd.setup{}
 
--- lsp.gopls.setup{}
-
 lsp.helm_ls.setup{
   settings = {
     ['helm-ls'] = {
@@ -47,8 +45,6 @@ lsp.helm_ls.setup{
     }
   }
 }
-
--- lsp.terraformls.setup{}
 
 lsp.lua_ls.setup {
   on_init = function(client)

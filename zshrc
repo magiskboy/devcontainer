@@ -32,10 +32,6 @@ _load_defer_plugins
 export ZSH_THEME="robbyrussell"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#878787"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="${PYENV_ROOT}/shims:$PATH"
-export PYTHONDONTWRITEBYTECODE=1
-
 export EDITOR="nvim"
 
 export BAT_THEME="OneHalfLight"
@@ -46,6 +42,7 @@ export PATH="${PATH}:/opt/neovim/bin"
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+export PYTHONDONTWRITEBYTECODE=1
 eval "$(pyenv init - bash)"
 
 export NVM_DIR="$HOME/.nvm"

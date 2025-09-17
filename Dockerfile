@@ -16,11 +16,17 @@ RUN ./c-stack
 ADD ./installer/zsh-stack .
 RUN ./zsh-stack
 
+ADD ./installer/python-stack .
+RUN ./python-stack
+
 ADD ./installer/nodejs-stack .
 RUN ./nodejs-stack
 
-ADD ./installer/python-stack .
-RUN ./python-stack
+ADD ./installer/aws-stack .
+RUN ./aws-stack
+
+ADD ./installer/azure-stack .
+RUN ./azure-stack
 
 ADD ./installer/rust-stack .
 RUN ./rust-stack
@@ -43,6 +49,9 @@ RUN ./vscode
 ADD config/nvim /root/.config/nvim
 ADD zshrc /root/.zshrc
 ADD gitconfig /root/.gitconfig
+
+ADD ./post-install .
+RUN ./post-install
 
 WORKDIR /root
 
